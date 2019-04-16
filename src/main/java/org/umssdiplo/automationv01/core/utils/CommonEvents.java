@@ -87,6 +87,7 @@ public class CommonEvents {
                 .orElse(null);
     }
 
+//github/markmcpG/QA-mark
     /**
      * This method return the text content of a WebElement.
      *

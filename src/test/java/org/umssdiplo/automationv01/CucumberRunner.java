@@ -11,4 +11,9 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
                 "junit:build/test-report.xml"}
 )
 public class CucumberRunner extends AbstractTestNGCucumberTests{
+
+//    @After
+//    public void closeBrowser(){
+//        ManageDriver.getInstance().getWebDriver().close();
+//    }
 }

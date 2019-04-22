@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 
@@ -16,6 +17,7 @@ public class CommonEvents {
      *
      * @param webElement Is web element.
      * @param content    Is the content that will be set to the web element.
+     *
      */
 
 
@@ -25,10 +27,15 @@ public class CommonEvents {
         webElement.sendKeys(content);
     }
 
-    public static void hoverToElement(String ele) {
+//    public static void hoverToElement(String ele) {
+//        Actions builder = new Actions(ManageDriver.getInstance().getWebDriver());
+//        WebElement element = ManageDriver.getInstance().getWebDriver().findElement(By.xpath("html/body/div[2]/div/div/div[1]/div/div[3]/div/div[1]/div[1]/a"));
+//        builder.moveToElement(element).build().perform();
+//    }
+
+    public static void hoverToElement(WebElement webElement) {
         Actions builder = new Actions(ManageDriver.getInstance().getWebDriver());
-        WebElement element = ManageDriver.getInstance().getWebDriver().findElement(By.xpath("html/body/div[2]/div/div/div[1]/div/div[3]/div/div[1]/div[1]/a"));
-        builder.moveToElement(element).build().perform();
+        builder.moveToElement(webElement).build().perform();
     }
 
 

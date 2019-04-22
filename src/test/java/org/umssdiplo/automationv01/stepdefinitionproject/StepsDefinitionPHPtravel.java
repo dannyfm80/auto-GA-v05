@@ -20,7 +20,8 @@ public class StepsDefinitionPHPtravel {
 
     @And("^click 'Check mens' button in 'mens' page$")
     public void clickCheckMensButtonInMensPage() {
-        login.clickMens();
+//        login.clickMens();
+        login.hoverToElement();
     }
 
 //    @And("^click 'Check Shoes' button in 'shoes' page$")

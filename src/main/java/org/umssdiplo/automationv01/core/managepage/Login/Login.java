@@ -19,8 +19,10 @@ public class Login extends BasePage {
     @FindBy(partialLinkText = "")
     private WebElement testing;
 
-    @FindBy(css = ".a.label")
-    private WebElement Mens;
+//
+
+    @FindBy(xpath = "html/body/div[2]/div/div/div[1]/div/div[3]/div/div[1]/div[1]/a")
+    private WebElement tabHombre;
 
 //    @FindBy(css = "span.site-nav_list_name")
 //    private WebElement Mens;
@@ -33,11 +35,9 @@ public class Login extends BasePage {
         CommonEvents.clickButton(loginBtn);
     }
 
-    public void clickMens() {
-//        CommonEvents.clickButton(Mens);
-        CommonEvents.hoverToElement(Mens);
 
-
+    public void hoverToElement() {
+        CommonEvents.hoverToElement(tabHombre);
     }
 
 

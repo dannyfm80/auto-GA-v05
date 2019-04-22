@@ -1,6 +1,5 @@
 package org.umssdiplo.automationv01.stepdefinitionproject;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
@@ -18,4 +17,16 @@ public class StepsDefinitionPHPtravel {
     public void setMyCredentialsOnLoginPage() throws Throwable {
         login.setCredentials();
     }
+
+    @And("^click 'Check mens' button in 'mens' page$")
+    public void clickCheckMensButtonInMensPage() {
+        login.clickMens();
+    }
+
+//    @And("^click 'Check Shoes' button in 'shoes' page$")
+//    public void clickCheckShoesButtonInShoesPage() {
+//        login.clickShoes();
+//    }
+
+
 }

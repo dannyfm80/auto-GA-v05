@@ -19,6 +19,12 @@ public class Login extends BasePage {
     @FindBy(partialLinkText = "")
     private WebElement testing;
 
+    @FindBy(css = ".a.label")
+    private WebElement Mens;
+
+//    @FindBy(css = "span.site-nav_list_name")
+//    private WebElement Mens;
+
     public void setCredentials() {
         String username = PropertyAccessor.getInstance().getUser();
         String password = PropertyAccessor.getInstance().getPassword();
@@ -26,4 +32,16 @@ public class Login extends BasePage {
         CommonEvents.setInputField(passwordInputField, password);
         CommonEvents.clickButton(loginBtn);
     }
+
+    public void clickMens() {
+//        CommonEvents.clickButton(Mens);
+        CommonEvents.hoverToElement(Mens);
+
+
+    }
+
+
+//    public void clickShoes() {
+//        CommonEvents.clickButton(Shoes);
+//    }
 }

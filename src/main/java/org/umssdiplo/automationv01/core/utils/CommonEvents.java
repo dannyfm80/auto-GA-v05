@@ -17,11 +17,21 @@ public class CommonEvents {
      * @param webElement Is web element.
      * @param content    Is the content that will be set to the web element.
      */
+
+
     public static void setInputField(WebElement webElement, String content) {
         ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
         webElement.clear();
         webElement.sendKeys(content);
     }
+
+    public static void hoverToElement(String ele) {
+        Actions builder = new Actions(ManageDriver.getInstance().getWebDriver());
+        WebElement element = ManageDriver.getInstance().getWebDriver().findElement(By.xpath("html/body/div[2]/div/div/div[1]/div/div[3]/div/div[1]/div[1]/a"));
+        builder.moveToElement(element).build().perform();
+    }
+
+
 
     /**
      * This method perform a click action in a web element.

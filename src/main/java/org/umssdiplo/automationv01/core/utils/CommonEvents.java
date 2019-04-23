@@ -6,6 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 
 import java.util.List;
@@ -27,17 +28,16 @@ public class CommonEvents {
         webElement.sendKeys(content);
     }
 
-//    public static void hoverToElement(String ele) {
-//        Actions builder = new Actions(ManageDriver.getInstance().getWebDriver());
-//        WebElement element = ManageDriver.getInstance().getWebDriver().findElement(By.xpath("html/body/div[2]/div/div/div[1]/div/div[3]/div/div[1]/div[1]/a"));
-//        builder.moveToElement(element).build().perform();
-//    }
-
     public static void hoverToElement(WebElement webElement) {
         Actions builder = new Actions(ManageDriver.getInstance().getWebDriver());
         builder.moveToElement(webElement).build().perform();
     }
 
+    public static void chooseDropDownByTextVisible(WebElement webElement, String value) {
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
+        Select selectField = new Select(webElement);
+        selectField.selectByVisibleText(value);
+    }
 
 
     /**

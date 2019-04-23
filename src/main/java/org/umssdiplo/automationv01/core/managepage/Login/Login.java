@@ -21,11 +21,42 @@ public class Login extends BasePage {
 
 //
 
-    @FindBy(xpath = "html/body/div[2]/div/div/div[1]/div/div[3]/div/div[1]/div[1]/a")
+    @FindBy(xpath = "//a[@manual_cm_sp='header-_-HOMBRE']")
     private WebElement tabHombre;
 
-//    @FindBy(css = "span.site-nav_list_name")
-//    private WebElement Mens;
+    @FindBy(xpath = "//a[@manual_cm_sp='header-_-hombre-_-tenis-_-fútbol']")
+//    a[@manual_cm_sp='header-_-hombre-_-tenis-_-fútbol']
+    private WebElement Futbol;
+
+    @FindBy(xpath = "//img[@title='Calzado de Fútbol X 18.3 TF']")
+    private WebElement Shoe;
+
+    @FindBy(xpath = "//button[@title='Elige tu talla']")
+    private WebElement TAM;
+
+    @FindBy(xpath = "//button[@value='BB9398_680']")
+    private WebElement Size;
+
+    @FindBy(xpath = "//button[@data-auto-id='add-to-bag']")
+    private WebElement AddCarrit;
+
+    @FindBy(xpath = "//span[@data-auto-id='add-to-bag-product-info-qty']")
+    private WebElement bagCount;
+
+    @FindBy(xpath = "//a[@data-auto-id='view-bag-desktop']")
+    private WebElement VerCar;
+
+    @FindBy(xpath = "//a[@class=\"name\"]")
+    private WebElement titleElement;
+
+    @FindBy(xpath = "//div[@data-ci-test-id='orderTotalProductsDeliveryValue']")
+    private WebElement pricePartial;
+
+    @FindBy(xpath = "//div[@data-ci-test-id='orderTotalCartValue']")
+    private WebElement priceTotal;
+
+
+    private String priceShoe;
 
     public void setCredentials() {
         String username = PropertyAccessor.getInstance().getUser();
@@ -40,8 +71,50 @@ public class Login extends BasePage {
         CommonEvents.hoverToElement(tabHombre);
     }
 
+    public void clickFutbol() {
+        CommonEvents.clickButton(Futbol);
+    }
 
-//    public void clickShoes() {
-//        CommonEvents.clickButton(Shoes);
-//    }
+    public void clickShoe() {
+        CommonEvents.clickButton(Shoe);
+    }
+
+    public void clickTam() {
+        CommonEvents.clickButton(TAM);
+    }
+
+    public void clickSize() {
+        CommonEvents.clickButton(Size);
+    }
+
+    public void clickAddCarrito() {
+        CommonEvents.clickButton(AddCarrit);
+    }
+
+    public int getViewShopingCar() {
+        String aux = bagCount.getText();
+        aux = aux.replaceAll("\\D+", "");
+        System.out.println("  numero es   " + aux);
+        int num = Integer.parseInt(aux);
+        return num;
+    }
+
+    public void clickVerCarrito() {
+        CommonEvents.clickButton(VerCar);
+    }
+
+    public String getTitle(String title) {
+        return titleElement.getText();
+    }
+
+    public String getPrice() {
+        String aux = pricePartial.getText();
+        return aux;
+    }
+
+    public String getPriceTotal() {
+        String aux = priceTotal.getText();
+        return aux;
+    }
+
 }
